@@ -1,0 +1,14 @@
+version: '2.0'
+
+services:
+
+   kafka_mirror_maker:
+      image: ${DOCKER_REPO}/${APP_NAME}
+      container_name: ${CONTAINER_NAME}
+      hostname: ${HOSTNAME}
+
+      environment:
+         - WHITE_LIST=syslog
+         - SOURCE_BROKERS=x.x.x.x:9094
+         - DESTINATION_BROKERS=x.x.x.x:9092
+         - CONSUMER_GROUP_ID=id
